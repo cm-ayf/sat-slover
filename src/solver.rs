@@ -35,8 +35,6 @@ impl Solver {
                 let b = entry.sign().apply(true);
                 if let Some(res) = self.extend_push(&cnf, &assignment, var, b) {
                     return Ok(Solution::Satisfiable(res));
-                } else {
-                    continue;
                 }
             } else {
                 let var = Self::pick_var(&cnf).ok_or(SolverError::NoUnassignedVar)?;
